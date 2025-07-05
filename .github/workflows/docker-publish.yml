@@ -9,6 +9,9 @@ jobs:
   docker:
     runs-on: ubuntu-latest
 
+    env:
+      GOTOOLCHAIN: "local"
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -30,7 +33,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and Push
+      - name: Build and Push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
