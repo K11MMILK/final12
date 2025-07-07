@@ -83,7 +83,7 @@ func (s ParcelService) NextStatus(number int) error {
 		return nil
 	}
 
-	fmt.Printf("У посылки №%d новый статус: %s\n", number, nextStatus)
+	fmt.Printf("У посылки № %d новый статус: %s\n", number, nextStatus)
 
 	return s.store.SetStatus(number, nextStatus)
 }
